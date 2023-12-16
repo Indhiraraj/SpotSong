@@ -12,10 +12,10 @@ public class ImageDownloader {
         return imageUrl;
     }
 
-    private final String destinationFolderPath;
+    private  File destinationFolderPath;
 
 
-    public ImageDownloader(String imageUrl,String destinationFolderPath){
+    public ImageDownloader(String imageUrl,File destinationFolderPath){
         this.imageUrl = imageUrl;
 
         this.destinationFolderPath = destinationFolderPath;
@@ -24,7 +24,7 @@ public class ImageDownloader {
 
     public ImageDownloader(String imageUrl){
         this.imageUrl = imageUrl;
-        this.destinationFolderPath = "D:\\images";
+
     }
 
 
@@ -49,4 +49,3 @@ public class ImageDownloader {
         return destinationFile;
     }
 }
-

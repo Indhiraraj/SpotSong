@@ -44,7 +44,7 @@ public class YoutubeSearch {
                 return;
             }
             case SHELF -> {
-                for (SearchResultVideoDetails video : item.asShelf().videos()) {
+                for ( SearchResultVideoDetails video : item.asShelf().videos() ) {
                     _song.setDownloadId(video.videoId());
                     return;
                 }

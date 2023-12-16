@@ -29,11 +29,11 @@ public class Downloader {
 
 
     public File audioDic = new File("Audios");
-
+    public File imageDic = new File("Images");
     Format Aformat;
     private final VideoInfo video;
 
-    public Downloader(MetaData song, File audioDic) {
+    public Downloader(MetaData song, File audioDic, File imageDic) {
         this._song = song;
         this.audioDic = audioDic;
         RequestVideoInfo request = new RequestVideoInfo(_song.getDownloadId());
@@ -79,7 +79,7 @@ public class Downloader {
                 .async();
         Response<File> response3 = downloader.downloadVideoFile(request3);
         File data = response3.data();
-        File imageFile=  new ImageDownloader(_song.getImageUrl().getImageUrl()).downloadImage();
+        File imageFile=  new ImageDownloader(_song.getImageUrl().getImageUrl(),imageDic).downloadImage();
         new SongDetailsAdder(data,imageFile, _song.getArtistName(), _song.getAlbumName()).add();
     }
 }
